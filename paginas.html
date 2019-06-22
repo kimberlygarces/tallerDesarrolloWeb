@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="	UTF-8">
+    <title>taller javaScript y jquery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css\estilo.css">
+
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#"> <b><i>Soft KiLa</i></b></a>
+            <img src="img/data.png" class="float-left" width="40">  
+          </nav>
+           
+
+        <main role="main">
+
+                <div class="container">
+
+                        <div class="jumbotron">
+
+                            <h1><b><i>Software KiLa</i></b></h1>      
+                             <p>Gestión de Personal y Proyectos</p>
+ 
+                        </div>
+            
+                  <div class="row">
+                    <div class="col-md-6">
+                     
+                      <div class="panel-group">
+
+                            <div class="panel panel-default">
+                                    <div class="panel-heading">DEPARTAMENTO</div>
+                                    <div class="panel-body">  
+                                    <div class="form-group">                
+                                        
+                  
+                                <!-- Button to Open the Modal -->
+
+                                <img align="left" src="img/depar.png" style="width:65px;">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="Nuevodpto()" data-target="#Departamento">
+                                Registrar Departamento
+                                </button>
+                                <br>
+                                <br>
+                                <img align="left" src="img/lupa.png" style="width:65px;">
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" id="ListaDpto" onclick="ListaDpto()">Listar</button>
+
+
+                                <!-- Modal del registro de personal-->
+                                <div class="modal" id="Departamento">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                  
+                                      <!-- Modal Header -->
+                                      <div class="modal-header">
+                                        <h4 class="modal-title">REGISTRAR DEPARTAMENTO</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      </div>
+                  
+                                      <!-- Modal body -->
+                                      <div class="modal-body">
+                                      
+        
+                                            <!-- INGRESAR DEPARTAMENTO-->
+        
+        
+                                            <div class="crear-dptos" id="divdptos" style="display: none">
+                                                <input type="text" class="form-control" name="nomdpto" id="nomdpto" placeholder="Ingresar el nombre del nuevo departamento">
+                                            </div>
+                                        </div>
+                  
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button class="btn btn-success" id="newdpto" onclick="Agregardpto()">Agregar</button>
+                                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                                <!-- listar departamento-->
+
+                               <div class="panel panel-default" id="divtabla" style="display: none">
+                                <div class="panel-heading">Lista de departamentos</div>
+
+                                <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                          </tr>
+
+                                        <tbody id="Departamentos">
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <button type="button" id="Boton"class="deletedpto-row">Eliminar</button>
+                                    <button type="button" id="Boton"class="editardpto-row">Editar</button>
+                                    <button type="button" id="BClose" class="btn btn-danger" onclick="BClose()">Close</button>
+
+                                 </div>
+                                 <br>
+                                </div>
+                             </div>  
+                            </div>
+
+                          <div class="panel panel-default">
+                            <div class="panel-heading">PERSONAL</div>
+                            <div class="panel-body">  
+                            <div class="form-group">  
+          
+                        <!-- panel de personal -->
+                        <img src="img/usuario.png" style="width:120px;">
+
+                        <br>
+
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RegistroEmpleado">
+                        Registrar Empleados
+                        </button>
+                        <br>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ListarContalidad">
+                                Listar
+                        </button>
+          
+                        <!-- Modal del registro de personal-->
+                        <div class="modal" id="RegistroEmpleado">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+          
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title">REGISTRAR EMPLEADO</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+          
+                              <!-- Modal body -->
+                              <div class="modal-body">
+
+                                    <!-- INGRESO DE EMPLEADO-->
+
+                                    <img src="img/usuario.png" style="width:120px;">
+                                    <button class="btn btn-success" id="newemple" onclick="Nuevoempleado()">Nuevo Empleado</button>
+
+
+
+
+                                        <div class="crear-emple" id="divemple" style="display: none">
+                                   
+                                            <br>
+                                            <input type="text" class="form-control"  name="nomemple" id="nomemple" placeholder="Ingresar nombre completo">&nbsp;
+                                            <br>
+                                            <select name="iddptos" id="iddptos" class="form-control" style="width:100%;">
+                                            <option value="">Elija un departamento</option>
+                                            </select>
+                                            <br>
+                                            <input type="text" class="form-control" name="puesto" id="puesto" placeholder="Ingresar la descripción del puesto que ocupa">&nbsp;
+                                            <br>
+                                            <input type="text" class="form-control" name="proyectos" id="proyectos" placeholder="Ingresar proyecto">
+                                            <br>
+                                            <input id="inputFile1" type="file"><br>
+                                            <img id="img1" width="80px" height="100px" onmouseover="this.width=200;this.height=250;" onmouseout="this.width=80;this.height=100;"><br>
+                                        </div>
+                                </div>
+          
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button class="btn btn-success" id="newemple" onclick="Agregaremple()">Agregar</button>
+                                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
+
+
+                        <!-- Modal del listar personal-->
+                        <div class="modal" id="ListarContalidad">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Personal Registrado</h4>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+    
+                                            <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 10px"> </th>
+                                                            <th>Empleado</th>
+                                                            <th>Departamento</th>
+                                                            <th>Puesto </th>
+                                                            <th>Proyectos</th>
+                                                            <th>Foto</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Empleados">
+                                                    </tbody>
+                                                </table>
+     
+                                      </div>
+                
+                                      <!-- Modal footer -->
+                                      <div class="modal-footer">
+                                            <button type="button" id="Boton" class="deleteemple-row">Eliminar</button>
+                                            <button type="button" id="Boton" class="editaremple-row">Editar</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                      
+                        </div>
+                     </div>  
+                    </div>
+                </div>         
+             </div>
+          
+          
+                    <div class="col-md-6">
+          
+                     
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">PROYECTOS</div>
+                              <div class="panel-body">
+                              <section id="IngresarEmpleado">       
+                              <div class="form-group">  
+            
+                          <!-- Button to Open the Modal -->
+
+                          <img align="left" src="img/proyec.png" style="width:65px;">
+
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="Nuevoproyecto()">
+                          Registrar Proyecto
+                          </button>
+                          <br>
+                          <br>
+                          <img align="left" src="img/lupa.png" style="width:65px;">
+
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Listar">
+                                Listar
+                        </button>
+
+                        <br>
+                        <br>
+                          <!-- The Modal -->
+                          <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+            
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h4 class="modal-title">REGISTRAR PROYECTO</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+            
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    
+                                        <div class="crear-proyec" id="divproyec" style="display: none">
+
+                                            <input type="text" name="nomproyec" id="nomproyec" class="form-control" placeholder="Ingrese el nombre del proyecto">
+                                            <br>
+                                            <input type="text" name="descrip" id="descrip" class="form-control" placeholder="Descripción del proyecto">
+                                            <br>
+
+                                            <div>
+
+
+                                  </div>
+            
+                                  <!-- Modal footer -->
+                                  <div class="modal-footer">
+                                    <button class="btn btn-success" id="newproyec" class="editaremple-row" onclick="Agregarproyec()">Agregar</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                  </div>
+            
+                                </div>
+                              </div>
+                            </div>
+            
+                         </div>
+                            </div>
+
+                            <div class="modal" id="Listar">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                    
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Lista de proyectos</h4>
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                    
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+
+
+                                            
+                                                <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 10px"></th>
+                                                        <th>Proyecto</th>
+                                                        <th>Descripcion</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="Proyectos">
+                                                </tbody>
+                                            </table>
+                                           
+        
+                                          </div>
+                    
+                                          <!-- Modal footer -->
+                                          <div class="modal-footer">
+
+                                                <button type="button" id="Boton" class="deleteproyec-row">Eliminar</button>
+                                                <button type="button" id="Boton" class="editarproyec-row">Editar</button>
+                      
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                          </div>
+                    
+                                        </div>
+                                      </div>
+                                    </div>
+                    
+                                 </div>
+                             </div> 
+                        </div>  
+                        
+                        <div class="panel panel-default">
+                         <div class="panel-heading">ASIGNACIÓN DE PROYECTOS</div>
+                         <div class="panel-body">  
+
+
+                    <img align="left" src="img/proyec.png" style="width:65px;">
+                  <br>
+                    <select class="form-control" name="proyecto" id="proyecto" style="width:80%;">
+                    <option value="">Elija un proyecto</option>
+                    </select>
+                    <br>
+                    <img align="left" src="img/usuario.png" style="width:65px;">
+                    <br>
+                    <select class="form-control" name="empleado" id="empleado" style="width:80%;">
+                        <option value="">Elija un empleado</option>
+                    </select>
+                    <br>
+                    <button class="btn btn-primary" id="newproyemp" onclick="Agregarempleproyec()">Agregar</button>
+                    <div>
+
+                        <br>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px"></th>
+                                    <th>Proyecto</th>
+                                    <th>Empleado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Proyecempleado">
+                            </tbody>
+                        </table>
+                        <button type="button" id="Boton" class="deleteproyemp-row">Eliminar</button>
+                        <button type="button" id="Boton" class="editarproyemp-row">Editar</button>
+                    </div>
+
+                         </div>
+                         </div>    
+                        
+                        </div> 
+
+
+
+                        </div>
+                            
+                            
+                        </div>
+                  
+                    
+                  </div>
+                   
+                </div>
+              
+                <hr>
+              
+                </div> 
+              
+              </main>
+
+
+
+              <footer class="page-footer font-small blue">
+
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">© Proyecto de Desarrollo Web
+                        <br>
+                      <a href=""> Kimberly Garcés Pérez</a>
+                      <br>
+                      <a href=""> Laura de la Ossa Rivera</a>
+                    </div>
+                   
+                  
+                  </footer>
+
+</body>
+
+<script>
+    function Nuevodpto() {
+        document.getElementById("divdptos").style.display = 'block';
+
+        
+    }
+
+    function ListaDpto() {
+        document.getElementById("divtabla").style.display = 'block';
+        document.getElementById("ListaDpto").style.display = 'none';
+
+    }
+
+    function BClose(){
+
+        document.getElementById("divtabla").style.display = 'none';
+        document.getElementById("ListaDpto").style.display = 'block';
+
+
+    }
+
+    var datosdptos = [];
+    var dptos = new Object();
+    var Ind = 0;
+
+    function Agregardpto() {
+        var dptos = new Object();
+        dptos.nomdpto = document.getElementById("nomdpto").value;
+        if (dptos.nomdpto != "") {
+            $("#Departamentos").each(function() {
+                var departamento = $(this).parents("tr").find('#depar').value;
+                if (departamento != dptos.nomdpto) {
+                    var selecmarca = "<tr><td><input type='checkbox' name='record'></td><td>" +
+                        dptos.nomdpto + "&nbsp;<input type='hidden' id='depar' name='depar' value='" + dptos.nomdpto + "'></td><td></tr>";
+                    $("#Departamentos").append(selecmarca);
+                    datosdptos.push(dptos);
+                    document.getElementById("nomdpto").value = "";
+                    Ind++;
+                } else {
+                    alert("Ya existe un Departamento con ese Nombre...!");
+                    document.getElementById("nomdpto").focus();
+                }
+            });
+
+        } else {
+            alert("debe ingresar un Departamento...!");
+            document.getElementById("nomdpto").focus();
+        }
+        cargardptos();
+    }
+
+    $(".deletedpto-row").click(function() {
+        $("#Departamentos").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#depar').val();
+                var idexToDelete;
+                datosdptos.filter((item, index) => {
+                    if (item.nomdpto === vlr) {
+                        indexToDelete = index;
+                    }
+                });
+                datosdptos.splice(indexToDelete, 1);
+            }
+        });
+    });
+
+    $(".editardpto-row").click(function() {
+        $("#Departamentos").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#depar').val();
+                datosdptos.filter((item, index) => {
+                    if (item.nomdpto === vlr) {
+                        document.getElementById("nomdpto").value = item.nomdpto;
+                    }
+                });
+            }
+        });
+    });
+
+    function cargardptos() {
+        var optini = "Elija un departamento";
+        document.getElementById("iddptos").innerHTML = "<option value=''>" + optini + "</option>";
+        for (var i = 0; i < datosdptos.length; i++) {
+            document.getElementById("iddptos").innerHTML += "<option value='" + datosdptos[i].nomdpto + "'>" + datosdptos[i].nomdpto + "</option>";
+        }
+    }
+
+    function Nuevoempleado() {
+        document.getElementById("divemple").style.display = 'block';
+    }
+
+    var datosemple = [];
+    var empleado = new Object();
+    var Ind = 0;
+
+    function Agregaremple() {
+        var empleado = new Object();
+        empleado.nomemple = document.getElementById("nomemple").value;
+        empleado.iddptos = document.getElementById("iddptos").value;
+        empleado.puesto = document.getElementById("puesto").value;
+        empleado.proyectos = document.getElementById("proyectos").value;
+        empleado.foto = document.getElementById("img1");
+        if (empleado.nomemple != "") {
+            if (empleado.iddptos != "") {
+                if (empleado.puesto != "") {
+                    if (empleado.proyectos != "") {
+                        $("#Empleados").each(function() {
+                            var nombreemple = $(this).parents("tr").find('#emple').value;
+                            if (nombreemple != empleado.nomemple) {
+                                var selecmarca = "<tr><td><input type='checkbox' name='record'></td><td>" +
+                                    empleado.nomemple + "&nbsp;<input type='hidden' id='emple' name='emple' value='" + empleado.nomemple + "'></td><td>" +
+                                    empleado.iddptos + "&nbsp;<input type='hidden' id='depar' name='depar' value='" + empleado.iddptos + "'></td><td>" +
+                                    empleado.puesto + "&nbsp;</td><td>" +
+                                    empleado.proyectos + "&nbsp;</td><td><img id='img1' width='20px' height='30px' onmouseover='this.width=50;this.height=60;' onmouseout='this.width=20;this.height=30;'></td></tr>";
+                                $("#Empleados").append(selecmarca);
+                                datosemple.push(empleado);
+                                document.getElementById("nomemple").value = "";
+                                document.getElementById("iddptos").value = "";
+                                document.getElementById("puesto").value = "";
+                                document.getElementById("proyectos").value = "";
+                                Ind++;
+                            } else {
+                                alert("Ya existe un Empleado con ese Nombre...!");
+                                document.getElementById("nomemple").focus();
+                            }
+                        });
+                    } else {
+                        alert("debe ingresar #s de proyectos...!");
+                        document.getElementById("proyectos").focus();
+                    }
+                } else {
+                    alert("debe ingresar descripcion puesto de trabajo...!");
+                    document.getElementById("puesto").focus();
+                }
+            } else {
+                alert("debe seleccionar un Departamento...!");
+                document.getElementById("iddptos").focus();
+            }
+        } else {
+            alert("debe ingresar el nombre del empleado...!");
+            document.getElementById("nomemple").focus();
+        }
+        cargarempleados();
+        cargardptosemple();
+    }
+
+    $(".deleteemple-row").click(function() {
+        $("#Empleados").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#emple').val();
+                var idexToDelete;
+                datosemple.filter((item, index) => {
+                    if (item.nomemple === vlr) {
+                        indexToDelete = index;
+                    }
+                });
+                datosemple.splice(indexToDelete, 1);
+            }
+        });
+    });
+
+    $(".editaremple-row").click(function() {
+        $("#Empleados").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#emple').val();
+                var idexToDelete;
+                datosemple.filter((item, index) => {
+                    if (item.nomemple === vlr) {
+                        document.getElementById("nomemple").value = item.nomemple;
+                        document.getElementById("iddptos").value = item.iddptos;
+                        document.getElementById("puesto").value = item.puesto;
+                        document.getElementById("proyectos").value = item.proyectos;
+                    }
+                });
+            }
+        });
+    });
+
+    function init() {
+        var inputFile = document.getElementById('inputFile1');
+        inputFile.addEventListener('change', mostrarImagen, false);
+    }
+
+    function mostrarImagen(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var img = document.getElementById('img1');
+            img.src = event.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+
+    window.addEventListener('load', init, false);
+
+    function cargarempleados() {
+        var optini = "Elija un empleado";
+        document.getElementById("empleado").innerHTML = "<option value=''>" + optini + "</option>";
+        for (var i = 0; i < datosemple.length; i++) {
+            document.getElementById("empleado").innerHTML += "<option value='" + datosemple[i].nomemple + "-" + datosemple[i].iddptos + "'>" + datosemple[i].nomemple + "-" + datosemple[i].iddptos + "</option>";
+        }
+    }
+
+    function Nuevoproyecto() {
+        document.getElementById("divproyec").style.display = 'block';
+    }
+
+    var datosproyec = [];
+    var proyectos = new Object();
+    var Ind = 0;
+
+    function Agregarproyec() {
+        var proyectos = new Object();
+        proyectos.nomproyec = document.getElementById("nomproyec").value;
+        proyectos.descrip = document.getElementById("descrip").value;
+        if (proyectos.nomproyec != "") {
+            if (proyectos.descrip != "") {
+                $("#Proyectos").each(function() {
+                    var nombreproyec = $(this).parents("tr").find('#proy').value;
+                    if (nombreproyec != proyectos.nomproyec) {
+                        var selecmarca = "<tr><td><input type='checkbox' name='record'></td><td>" +
+                            proyectos.nomproyec + "&nbsp;<input type='hidden' id='proy' name='proy' value='" + proyectos.nomproyec + "'></td><td>" +
+                            proyectos.descrip + "</td><td></tr>";
+                        $("#Proyectos").append(selecmarca);
+                        datosproyec.push(proyectos);
+                        document.getElementById("nomproyec").value = "";
+                        document.getElementById("descrip").value = "";
+                        Ind++;
+                    } else {
+                        alert("Ya existe un Proyecto con ese Nombre...!");
+                        document.getElementById("nomproyec").focus();
+                    }
+                });
+            } else {
+                alert("debe ingresar la descripción del proyecto...!");
+                document.getElementById("descrip").focus();
+            }
+        } else {
+            alert("debe ingresar el nombre del proyecto...!");
+            document.getElementById("nomproyec").focus();
+        }
+        cargarproyec();
+    }
+
+    $(".deleteproyec-row").click(function() {
+        $("#Proyectos").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#proy').val();
+                var idexToDelete;
+                datosproyec.filter((item, index) => {
+                    if (item.nomproyec === vlr) {
+                        indexToDelete = index;
+                    }
+                });
+                datosproyec.splice(indexToDelete, 1);
+            }
+        });
+    });
+
+    $(".editarproyec-row").click(function() {
+        $("#Proyectos").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#proy').val();
+                var idexToDelete;
+                datosproyec.filter((item, index) => {
+                    if (item.nomproyec === vlr) {
+                        document.getElementById("nomproyec").value = item.nomproyec;
+                        document.getElementById("descrip").value = item.descrip;
+                    }
+                });
+            }
+        });
+    });
+
+    function cargarproyec() {
+        var optini = "Elija un proyecto";
+        document.getElementById("proyecto").innerHTML = "<option value=''>" + optini + "</option>";
+        for (var i = 0; i < datosproyec.length; i++) {
+            document.getElementById("proyecto").innerHTML += "<option value='" + datosproyec[i].nomproyec + "'>" + datosproyec[i].nomproyec + "</option>";
+        }
+    }
+
+    var datosproyecemple = [];
+    var proyectosconemple = new Object();
+    var Ind = 0;
+
+    function Agregarempleproyec() {
+        var proyectos = new Object();
+        proyectosconemple.empleado = document.getElementById("empleado").value;
+        proyectosconemple.proyecto = document.getElementById("proyecto").value;
+        if (proyectosconemple.empleado != "") {
+            if (proyectosconemple.proyecto != "") {
+                $("#Proyecempleado").each(function() {
+                    var empleproyec = $(this).parents("tr").find('#empleproy').value;
+                    if (empleproyec != proyectosconemple.empleado) {
+                        var selecmarca = "<tr><td><input type='checkbox' name='record'></td><td>" +
+                            proyectosconemple.empleado + "&nbsp;<input type='hidden' id='empleproy' name='empleproy' value='" + proyectos.empleado + "'></td><td>" +
+                            proyectosconemple.proyecto + "</td><td></tr>";
+                        $("#Proyecempleado").append(selecmarca);
+                        datosproyecemple.push(proyectosconemple);
+                        document.getElementById("empleado").value = "";
+                        Ind++;
+                    } else {
+                        alert("Ya existe un Empleado con los mismos datos en este proyecto...!");
+                        document.getElementById("empleado").focus();
+                    }
+                });
+            } else {
+                alert("debe seleccionar un proyecto....!");
+                document.getElementById("proyecto").focus();
+            }
+        } else {
+            alert("debe seleccionar un empleado...!");
+            document.getElementById("empleado").focus();
+        }
+        cargarproyemple();
+    }
+
+    $(".deleteproyemp-row").click(function() {
+        $("#Proyecempleado").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#empleproy').val();
+                var idexToDelete;
+                datosproyecemple.filter((item, index) => {
+                    if (item.empleado === vlr) {
+                        indexToDelete = index;
+                    }
+                });
+                datosproyecemple.splice(indexToDelete, 1);
+            }
+        });
+    });
+
+    $(".editarproyemp-row").click(function() {
+        $("#Proyecempleado").find('input[name="record"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("tr").remove();
+                var vlr = $(this).parents("tr").find('#empleproy').val();
+                var idexToDelete;
+                datosproyecemple.filter((item, index) => {
+                    if (item.empleado === vlr) {
+                        document.getElementById("empleado").value = item.empleado;
+                        document.getElementById("proyecto").value = item.proyecto;
+                    }
+                });
+            }
+        });
+    });
+
+    function cargardptosemple() {
+
+        $("#Dptos-empleado").html("");
+        for (var i = 0; i < datosemple.length; i++) {
+            var tr = `<tr>
+                <td>` + datosemple[i].iddptos + `</td>
+                <td>` + datosemple[i].nomemple + `</td>
+                <td>` + datosemple[i].proyectos + `</td>
+                </tr>`;
+            $("#Dptos-empleado").append(tr)
+        }
+
+    }
+
+    function cargarproyemple() {
+
+        $("#Proytos-empleado").html("");
+        for (var i = 0; i < datosproyecemple.length; i++) {
+            var tr = `<tr>
+        <td style="whith: 40px">` + datosproyecemple[i].proyecto + `</td>
+        <td style="whith: 60px">` + datosproyecemple[i].empleado + `</td>
+        </tr>`;
+            $("#Proytos-empleado").append(tr)
+        }
+
+    }
+</script>
+
+</html>
